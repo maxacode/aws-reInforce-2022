@@ -1,8 +1,28 @@
 
 ## How to prevent sql injection vulnerabilities how prepared statements work
 
+- [How to prevent sql injection vulnerabilities how prepared statements work](#how-to-prevent-sql-injection-vulnerabilities-how-prepared-statements-work)
+- [What are Prepared Statements?](#what-are-prepared-statements)
+- [**How Prepared Statements work?**](#how-prepared-statements-work)
+- [**Examples for different languages**](#examples-for-different-languages)
+  - [**Java**](#java)
+  - [**C#**](#c)
+  - [**PHP**](#php)
+  - [**Python**](#python)
+  - [**Go**](#go)
+  - [**Ruby**](#ruby)
+  - [**Node**](#node)
+- [**Alternatives to Prepared Statements**](#alternatives-to-prepared-statements)
+- [**Stored Procedures**](#stored-procedures)
+  - [**Allowlist**](#allowlist)
+  - [**What about input sanitization?**](#what-about-input-sanitization)
+- [**Questions Here Okay Cool**](#questions-here-okay-cool)
+
+
 **Introduction**
 
+
+## What are Prepared Statements?
 
 
 
@@ -14,7 +34,6 @@ SQL Injection is a software vulnerability that occurs when user-supplied data is
 
 While easy to fix, SQL Injection vulnerabilities are still prevalent. In this article, we will discuss how to prevent these vulnerabilities through good coding practices. We will focus on prepared statements, how they work, and how you can implement them.
 
-## **What are Prepared Statements?**
 
 A prepared statement is a parameterized and reusable SQL query which forces the developer to write the SQL command and the user-provided data separately. The SQL command is executed safely, preventing SQL Injection vulnerabilities.
 
@@ -290,6 +309,9 @@ When implemented correctly, stored procedures produce the same results as prepar
 
 Both of them offer the same level of effectiveness, so it’s up to you which one to use. However, if you choose stored procedures, make sure they do not include any unsafe dynamic SQL generation.
 
+
+
+
 ### **Allowlist**
 
 If your application has a feature where a user can choose an option from a finite number of options (such as the type of account (business / personal), the sort order indicator (asc/desc), etc.), then you can use a allowlist approach. A user can only select from options and cannot supply their own.
@@ -325,3 +347,5 @@ Input sanitization is the process of removing any unwanted characters from user-
 If you found this post helpful, you may also be interested in reading [our article on Same-Origin Policy and Cross Origin Resource Sharing (CORS).](/blog/same-origin-policy-and-cross-origin-resource-sharing-cors)
 
 </span>
+
+## **Questions Here Okay Cool**
