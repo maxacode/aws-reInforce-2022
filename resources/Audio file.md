@@ -1,10 +1,7 @@
 Audio file 
 
 New Recording 17.m4a 
-
  
-
-Transcript 
 
  Speaker 1 
 
