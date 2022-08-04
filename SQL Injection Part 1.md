@@ -1,31 +1,45 @@
-# SQL Injection Mustache Style: Part 1
-![](/images/sqllogo.webp)
 
-- [SQL Injection Mustache Style: Part 1](#sql-injection-mustache-style-part-1)
-  - [Introduction to Injection](#introduction-to-injection)
-  - [SQL Syntax](#sql-syntax)
-  - [URL Encoding](#url-encoding)
-  - [Reconnaissance](#reconnaissance)
-  - [Weaponization and Delivery](#weaponization-and-delivery)
-  - [Exploitation](#exploitation)
-  - [Defense](#defense)
-    - [Defense - Input Validation](#defense---input-validation)
-    - [Defense - Least Privilege](#defense---least-privilege)
-    - [Defense: Parameterized Queries](#defense-parameterized-queries)
-  - [Defense Code Examples](#defense-code-examples)
-    - [Clojure](#clojure)
-    - [Go](#go)
-    - [Java](#java)
-    - [.Net](#net)
-    - [JavaScript](#javascript)
-    - [PHP](#php)
-    - [Python](#python)
-    - [Ruby](#ruby)
-    - [Scala](#scala)
-    - [TypeScript](#typescript)
+
+
+# <p style="text-align: center;"> SQL Injection Mustache Style: Part 1 </p> <!-- omit in toc -->
+
+
+<center>
+
+![](/images/sqllogo.webp)
+</center>
+
+
+- [Introduction to Injection](#introduction-to-injection)
+- [SQL Syntax](#sql-syntax)
+- [URL Encoding](#url-encoding)
+- [Reconnaissance](#reconnaissance)
+- [Weaponization and Delivery](#weaponization-and-delivery)
+- [Exploitation](#exploitation)
+- [Defense](#defense)
+  - [Defense - Input Validation](#defense---input-validation)
+  - [Defense - Least Privilege](#defense---least-privilege)
+  - [Defense: Parameterized Queries](#defense-parameterized-queries)
+- [Defense Code Examples](#defense-code-examples)
+  - [Clojure](#clojure)
+  - [Go](#go)
+  - [Java](#java)
+  - [.Net](#net)
+  - [JavaScript](#javascript)
+  - [PHP](#php)
+  - [Python](#python)
+  - [Ruby](#ruby)
+  - [Scala](#scala)
+  - [TypeScript](#typescript)
+
+<center>
+
+---
+<br><center>
 
 ## Introduction to Injection
-
+</center>
+</center>
 Before diving into the hands-on portion of this lesson we will start with some background information on Injection, SQL Injection, and SQL Syntax. Then we will start the hands-on exercises with Reconnaissance.
 
 An injection attack allows attackers to inject code into a program or query. Injection attacks come in many forms and we will explore SQL Injection in this lesson.
@@ -48,7 +62,11 @@ SELECT * FROM users WHERE name='jane' AND password='x' OR '1'='1';
 
 This will always evaluate to true because '1'='1' so it will output the entire user table because the WHERE clause is always true. If a check is made to make sure that the query returns any data before logging a user in then you would be authenticated.
 
+---
+<br><center>
+
 ## SQL Syntax
+</center>
 It is important to note that syntax for different SQL databases varies, so trying different syntax to test for SQL injection vulnerabilities is important. There are many SQL Injection cheat sheets on the internet that can be used to test for SQL injection attacks. For example, a technique for ignoring everything after what you enter into the variable is using a comment. For the different versions of SQL the comment symbol varies:
 
 ```sql
@@ -69,7 +87,15 @@ Access (using null characters):
 
 You will come across characters that are URL encoded. Instead of using the character itself an encoding is used. This is common with web applications sending spaces and non-alphanumeric characters. We will go into URL encoding more in depth in another lesson but some basics are below.
 
+---
+<br><center>
+
+---
+<br><center>
+
 ## URL Encoding 
+</center>
+</center>
 
 starts with a percent symbol "%" and is then followed by a hexadecimal character. It is not important to know details about hexadecimal or URL encoding at this time. Some of the important encodings for reference:
 
@@ -85,7 +111,11 @@ You can always use a search engine to look these up at any time. The proxy will 
 
 Where do you look for SQL injection vulnerabilities? Any web application input that would do a database lookup or insert data into a database. The data may be entered as part of a URL, part of an input field, or by modifying an API call
 
+---
+<br><center>
+
 ## Reconnaissance
+</center>
 
 In this exercise, there is a social media app login screen in the browser sandbox. The goal is to try to get into Alice's account (username: alice). A SQL injection attack may be one way to do this.
 
@@ -114,7 +144,11 @@ The server encountered an internal error and was unable to complete your request
 ```
 
 
+---
+<br><center>
+
 ## Weaponization and Delivery
+</center>
 Now, try to break into Alice's account (username = alice). How can you make it so the SQL statement will always evaluate to true?
 
 If the Proxy is enabled you will have to click Submit once when the POST request is made and a second time when a GET request is made to request the /posts page upon successful exploitation.
@@ -150,7 +184,11 @@ The WHERE clause in the SQL will now look something like this:
 
 WHERE password = 'x' OR '1' = '1'
 
+---
+<br><center>
+
 ## Exploitation
+</center>
 There are many possible solutions to enter to get logged in. If you were not able to figure it out, try entering:
 
 x' OR '1' = '1
@@ -161,15 +199,27 @@ Once you have gotten into the account you will see a place to post to your feed.
 
 
 
+---
+<br><center>
+
 ## Defense
+</center>
 
 SQL Injection occurs because an attacker can manipulate and change a SQL query executed by the target application. The input is interpreted as a part of the SQL command, and not as a simple string -as it should be.
 
+---
+<br><center>
+
 ### Defense - Input Validation
+</center>
 
 Prevention of SQL Injection vulnerabilities, as for other vulnerabilities, starts with input validation. This means identifying all inputs and determining what kind of data users should be allowed to send. For instance, if your application asks users for their age, ensure the data input is actually a number and in the range of something reasonable such as 5-125.
 
+---
+<br><center>
+
 ### Defense - Least Privilege
+</center>
 
 Also, make sure you always enforce least privilege. This is a security principle that states only minimal privileges should be provided to a user/application/system to perform their duties. Simply put, never use the default ‘root’ user. For instance, if your web application uses a database to store/retrieve information, then your database user should have privileges to perform only basic tasks such as SELECT, INSERT, DELETE, UPDATE and EXECUTE. Everything else should be disabled. So even if an attacker manages to circumvent your prevention mechanisms, she will not be able to get complete access to your server.
 
@@ -179,7 +229,11 @@ Also, make sure that the original functionality still works. Check that these cr
 
 ![SQLI1.png](/images/SQLI1.png)
 
+---
+<br><center>
+
 ### Defense: Parameterized Queries
+</center>
 
 A parameterized query (also known as a prepared statement with variable binding) is a SQL query that contains a placeholder instead of the actual values provided by the user. 
 
@@ -187,7 +241,12 @@ When executed, a parameterized query is first pre-compiled, so the user input da
 
 This enables better performance and safe execution of the SQL command since data won't be "executed". If you want to learn more about different SQL Injection prevention methods and how prepared statements work, check out our blog post.
 
+---
+<br><center>
+
 ## Defense Code Examples
+</center>
+
 
 ### Clojure
 ```Clojure
