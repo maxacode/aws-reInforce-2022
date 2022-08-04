@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BlockPublicACL",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                    "s3:PutObject",
+                    "s3:PutObjectAcl"
+                    ],
+            "Resource": "arn:aws:s3:::s3-security-workshop-0e369be0a54f/*",
+            "Condition": {
+            "StringEquals": {
+                "s3:x-amz-acl": [
+                        "public-read",
+                        "public-read-write",
+                        "authenticated-read"
+                    ]
+                }
+            }
+        }
+    ]
+}
