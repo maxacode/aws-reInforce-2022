@@ -4,8 +4,11 @@
 **Introduction**
 
 
+
+
 https://www.hackedu.com/blog/how-to-prevent-sql-injection-vulnerabilities-how-prepared-statements-work
 
+1123
 
 SQL Injection is a software vulnerability that occurs when user-supplied data is used as part of a SQL query. Due to improper validation of data, an attacker can submit a valid SQL statement that changes the logic of the initial query used by the application. As a result, the attacker can view/modify/delete sensitive data of other users or even get unauthorized access to the entire system.
 
