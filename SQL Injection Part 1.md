@@ -11,7 +11,6 @@
 
  
 
-- [- TypeScript](#--typescript)
 - [Introduction to Injection](#introduction-to-injection)
 - [SQL Syntax](#sql-syntax)
 - [URL Encoding](#url-encoding)
@@ -33,6 +32,8 @@
   - [Ruby](#ruby)
   - [Scala](#scala)
   - [TypeScript](#typescript)
+
+
 ---
  
 ## Introduction to Injection
