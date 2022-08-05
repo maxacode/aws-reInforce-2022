@@ -6,10 +6,10 @@
  
 
 <p align="center">
-  <img src="images/sqllogo.webp" alt="v1">
+  <img src="images/sqllogo.webp">
 </p>
 
- 
+## Version 1.3 <!-- omit in toc --> 
 
 - [Introduction to Injection](#introduction-to-injection)
 - [SQL Syntax](#sql-syntax)
