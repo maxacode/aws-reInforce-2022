@@ -1,4 +1,7 @@
 
+<link type="text/css" rel="stylesheet" href="./resources/main.css" />
+
+
 <p align="center">
   <h1> SQL Injection Part 1 - The way of the Mustache </h1>
 </p>
