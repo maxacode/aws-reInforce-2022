@@ -1,12 +1,9 @@
+
+<p align="center">
+  <h1> SQL Injection Part 1 - The way of the Mustache </h1>
+</p>
+
  
-<h1>TEST</h1>
-
-<img src="images/SQLI2.png" alt="sqli2.png">
-
-<center>
-
-![](/images/sqllogo.webp)
-</center>
 
 <p align="center">
   <img src="images/sqllogo.webp">
