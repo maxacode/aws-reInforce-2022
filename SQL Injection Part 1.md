@@ -6,7 +6,7 @@
  
 
 <p align="center">
-  <img src="images/sqllogo.webp">
+  <img src="images/sqllogo.webp" alt="v1">
 </p>
 
  
