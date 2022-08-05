@@ -11,6 +11,7 @@
 
  
 
+- [- TypeScript](#--typescript)
 - [Introduction to Injection](#introduction-to-injection)
 - [SQL Syntax](#sql-syntax)
 - [URL Encoding](#url-encoding)
@@ -32,15 +33,10 @@
   - [Ruby](#ruby)
   - [Scala](#scala)
   - [TypeScript](#typescript)
-
-<center>
-
 ---
-<br><center>
-
+ 
 ## Introduction to Injection
-</center>
-</center>
+ 
 Before diving into the hands-on portion of this lesson we will start with some background information on Injection, SQL Injection, and SQL Syntax. Then we will start the hands-on exercises with Reconnaissance.
 
 An injection attack allows attackers to inject code into a program or query. Injection attacks come in many forms and we will explore SQL Injection in this lesson.
